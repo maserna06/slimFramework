@@ -32,17 +32,17 @@ $app->get('/', function (Request $request, Response $response) {
     ]);
 });
 
-$app->get('/usuarios', function (Request $request, Response $response) {
+$app->get('/estudiantes', function (Request $request, Response $response) {
     $view = Twig::fromRequest($request);
-    return $view->render($response, 'usuarios.html', [
-      'active' => 'usuarios'
+    return $view->render($response, 'estudiantes.html', [
+      'active' => 'estudiantes'
     ]);
 });
 
-$app->get('/usuarios/{id}', function (Request $request, Response $response, array $args) {
+$app->get('/estudiantes/{id}', function (Request $request, Response $response, array $args) {
     $view = Twig::fromRequest($request);
-    return $view->render($response, 'usuarios.html', [
-      'active' => 'usuarios',
+    return $view->render($response, 'estudiantes.html', [
+      'active' => 'estudiantes',
       'nombre' => $args['id']
     ]);
 });

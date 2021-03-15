@@ -7,9 +7,16 @@
 {% block body %}
   {{ parent() }}
 
-  <h2>Usuarios</h2>
+  <h2>Estudiantes</h2>
 
   {% if nombre != '' %}
     <p>Me llamo {{ nombre }}.</p>
   {% endif %}
+{% endblock %}
+
+
+{% block scripts %}
+  {{ parent() }}
+
+  <script src="{{ base_path() }}/../src/scripts/entidades/estudiantes.js"></script>
 {% endblock %}
