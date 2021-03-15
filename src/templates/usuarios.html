@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+  Perfil :: slimFramework
+{% endblock %}
+
+{% block body %}
+  {{ parent() }}
+
+  <h2>Usuarios</h2>
+
+  {% if nombre != '' %}
+    <p>Me llamo {{ nombre }}.</p>
+  {% endif %}
+{% endblock %}
