@@ -9,11 +9,78 @@
 
   <h2>Estudiantes</h2>
 
-  {% if nombre != '' %}
-    <p>Me llamo {{ nombre }}.</p>
-  {% endif %}
-{% endblock %}
+  <br>
 
+  <button type="button" class="btn btn-outline-success float-right" data-bs-toggle="modal" data-bs-target="#modalNuevoEstudiante">
+    Nuevo Estudiante
+  </button>
+
+  <br><br>
+
+  <table id="listaEstudiantes" class="table table-hover table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Nombres</th>
+        <th scope="col">Apellidos</th>
+        <th scope="col">Dirección</th>
+        <th scope="col">Telefono</th>
+        <th scope="col">Email</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <div class="modal" id="modalNuevoEstudiante">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Nuevo Estudiante</h5>
+          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <fieldset>
+              <div class="form-group">
+                <label for="nombres">Nombres</label>
+                <input type="text" class="form-control" id="nombre" placeholder="Nombres" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="apellidos">Apellidos</label>
+                <input type="text" class="form-control" id="apellidos" placeholder="Apellidos" required>
+              </div>
+
+              <div class="form-group">
+                <label for="direccion">Dirección</label>
+                <input type="text" class="form-control" id="direccion" placeholder="Dirección" required>
+              </div>
+
+              <div class="form-group">
+                <label for="celular">Celular</label>
+                <input type="text" class="form-control" id="celular" placeholder="Celular" required>
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="Email" required>
+              </div>
+            </fieldset>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary">Save changes</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
 
 {% block scripts %}
   {{ parent() }}

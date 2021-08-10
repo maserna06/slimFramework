@@ -32,18 +32,11 @@ $app->get('/', function (Request $request, Response $response) {
     ]);
 });
 
+// Estudiantes
 $app->get('/estudiantes', function (Request $request, Response $response) {
     $view = Twig::fromRequest($request);
     return $view->render($response, 'estudiantes.html', [
       'active' => 'estudiantes'
-    ]);
-});
-
-$app->get('/estudiantes/{id}', function (Request $request, Response $response, array $args) {
-    $view = Twig::fromRequest($request);
-    return $view->render($response, 'estudiantes.html', [
-      'active' => 'estudiantes',
-      'nombre' => $args['id']
     ]);
 });
 
