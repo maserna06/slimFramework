@@ -33,23 +33,24 @@
     <tbody></tbody>
   </table>
 
+  <!-- Modal form crear estudiante -->
   <div class="modal" id="modalNuevoEstudiante">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Nuevo Estudiante</h5>
-          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <form>
+        <form method="post" id="frmCrearEstudiante" onSubmit="return crearEstudiante(this)">
+          <div class="modal-header">
+            <h5 class="modal-title">Nuevo Estudiante</h5>
+            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
             <fieldset>
               <div class="form-group">
                 <label for="nombres">Nombres</label>
-                <input type="text" class="form-control" id="nombre" placeholder="Nombres" required>
+                <input type="text" class="form-control" id="nombres" placeholder="Nombres" required>
               </div>
-              
+
               <div class="form-group">
                 <label for="apellidos">Apellidos</label>
                 <input type="text" class="form-control" id="apellidos" placeholder="Apellidos" required>
@@ -70,12 +71,62 @@
                 <input type="email" class="form-control" id="email" placeholder="Email" required>
               </div>
             </fieldset>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary">Save changes</button>
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        </div>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Crear</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal form editar estudiante -->
+  <div class="modal" id="modalEditarEstudiante">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <form method="post" id="frmEditarEstudiante" onSubmit="return editarEstudiante(this)">
+          <div class="modal-header">
+            <h5 class="modal-title">Editar Estudiante</h5>
+            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <fieldset>
+              <div class="form-group">
+                <input type="hidden" class="form-control" id="idEd">
+
+                <label for="nombres">Nombres</label>
+                <input type="text" class="form-control" id="nombresEd" placeholder="Nombres" required>
+              </div>
+
+              <div class="form-group">
+                <label for="apellidos">Apellidos</label>
+                <input type="text" class="form-control" id="apellidosEd" placeholder="Apellidos" required>
+              </div>
+
+              <div class="form-group">
+                <label for="direccion">Dirección</label>
+                <input type="text" class="form-control" id="direccionEd" placeholder="Dirección" required>
+              </div>
+
+              <div class="form-group">
+                <label for="celular">Celular</label>
+                <input type="text" class="form-control" id="celularEd" placeholder="Celular" required>
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="emailEd" placeholder="Email" required>
+              </div>
+            </fieldset>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Editar</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>

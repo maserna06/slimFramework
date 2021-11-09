@@ -86,13 +86,13 @@ $app->post('/api/estudiantes/nuevo', function(Request $request, Response $respon
 });
 
 // PUT modificar un estudiante
-$app->put('/api/estudiantes/modificar/{id}', function(Request $request, Response $response, array $args) {
-  $id = $args['id'];
-  $nombres = $request->getParsedBody()['nombres'];
-  $apellidos = $request->getParsedBody()['apellidos'];
-  $direccion = $request->getParsedBody()['direccion'];
-  $celular = $request->getParsedBody()['celular'];
-  $email = $request->getParsedBody()['email'];
+$app->post('/api/estudiantes/modificar', function(Request $request, Response $response, array $args) {
+  $id = $request->getParsedBody()['idEd'];
+  $nombres = $request->getParsedBody()['nombresEd'];
+  $apellidos = $request->getParsedBody()['apellidosEd'];
+  $direccion = $request->getParsedBody()['direccionEd'];
+  $celular = $request->getParsedBody()['celularEd'];
+  $email = $request->getParsedBody()['emailEd'];
 
   $sql = "UPDATE estudiantes SET
             nombres = :nombres,
@@ -126,8 +126,8 @@ $app->put('/api/estudiantes/modificar/{id}', function(Request $request, Response
 });
 
 // DELETE modificar un estudiante
-$app->delete('/api/estudiantes/eliminar/{id}', function(Request $request, Response $response, array $args) {
-  $id = $args['id'];
+$app->post('/api/estudiantes/eliminar', function(Request $request, Response $response, array $args) {
+  $id = $request->getParsedBody()['id'];
 
   $sql = "DELETE FROM estudiantes WHERE id  = $id";
   try {
@@ -136,10 +136,10 @@ $app->delete('/api/estudiantes/eliminar/{id}', function(Request $request, Respon
     $res = $bd->prepare($sql);
     $res->execute();
 
-    if($res->rowcount() > 0) {
-      echo 'Estudiante eliminado';
+    if($res->rowcount()) {
+      echo "Estudiante $id eliminado";
     } else {
-      echo 'No existe Estudiante con el id: ' . $id;
+      echo "No existe Estudiante con el id: $id";
     }
 
     $res = null;
